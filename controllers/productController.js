@@ -1,0 +1,1 @@
+//Manages CRUD requests to return HTML response

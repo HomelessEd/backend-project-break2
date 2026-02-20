@@ -1,0 +1,1 @@
+//This is where are product schema using mongoose will go 
