@@ -1,1 +1,46 @@
-//Where post install dependencies and scripts appear. 
+{
+  "name": "backend-project-break2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "test": "jest --detectOpenHandles --runInBand"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HomelessEd/backend-project-break2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HomelessEd/backend-project-break2/issues"
+  },
+  "homepage": "https://github.com/HomelessEd/backend-project-break2#readme",
+  "description": "",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cloudinary": "^2.9.0",
+    "connect-mongo": "^6.0.0",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "method-override": "^3.0.0",
+    "mongoose": "^9.2.1",
+    "multer": "^2.0.2",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "devDependencies": {
+    "jest": "^30.2.0",
+    "nodemon": "^3.1.13",
+    "supertest": "^7.2.2"
+  }
+}
