@@ -1,4 +1,4 @@
-const {Product} = require('../models/Product');
+const {Product} = require('../02_models/Product');
 const mongoose = require('mongoose');
 
 describe('Product Model Unit Test', () => {

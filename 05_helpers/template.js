@@ -1,4 +1,4 @@
-const { categories, sizes} = require('../models/Product');
+const { categories, sizes} = require('../02_models/Product');
 
 const getProductCards = (products) => {
     if (!products || products.length === 0) {
