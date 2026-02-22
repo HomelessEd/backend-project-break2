@@ -8,6 +8,8 @@ const productController =
     try{
         const {category} =req.query;
         const products = await Product.find(category ? {category} : {});
+        if (req.headers['accept'] === 'application/json') {
+            return res.json(products); }
         const isAdmin = req.originalUrl.includes('dashboard');
         const nav =getNavBar(isAdmin);
         const cards = getProductCards(products, isAdmin);
@@ -41,6 +43,8 @@ const productController =
   }, showProductById: async (req, res) => {
     try{ 
       const product = await Product.findById(req.params.id);
+      if (req.headers['accept'] === 'application/json') {
+          return res.json(product);}
       const nav = getNavBar();
       const detailHtml = getProductDetail(product);
       const html = baseHtml(product.name, nav, detailHtml);
