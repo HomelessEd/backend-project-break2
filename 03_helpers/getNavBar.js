@@ -1,6 +1,6 @@
 const getNavBar = () => {
     return `
-    <nav>
+    <nav class="header-top">
         <a href="/products">Store</a> | 
         <a href="/dashboard">Admin</a>
     </nav>

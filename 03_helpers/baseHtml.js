@@ -9,9 +9,9 @@ const baseHtml = (title, nav, content) => {
   </head>
   <body>
     ${nav} 
-    <main>
-        ${content}
-    </main>
+   <div class="container">
+      <h1>${title}</h1> ${content}
+    </div>        
   </body>
   </html>`;
 };

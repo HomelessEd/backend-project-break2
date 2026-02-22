@@ -10,7 +10,7 @@ const productController =
         const nav =getNavBar();
         const isAdmin = req.originalUrl.includes('dashboard');
         const cards = getProductCards(products, isAdmin);
-        const html = baseHtml('Please Bloody Work', nav, cards);
+        const html = baseHtml('Super Shop- Buy this stuff', nav, cards);
         res.send(html);
     } catch (error) {
         console.error("Error in showProducts:", error);
@@ -27,8 +27,11 @@ const productController =
     }
   }, createProduct: async (req, res) => {
     try {
-        await Product.create(req.body);
-        res.redirect('/products');
+        const productData = {...req.body};
+        if (req.file) {
+          productData.image = req.file.path;
+        } await Product.create(productData);
+          res.redirect('/dashboard');
     } catch (error) {
          console.error("Error in createProduct:", error);
          res.status(500).send('<h1>Error creating product</h1>');
@@ -74,7 +77,10 @@ const productController =
     }
   }, updateProduct: async (req, res) => {
     try {
-      await Product.findByIdAndUpdate(req.params.id, req.body);
+      const updateData = { ...req.body};
+      if (req.file) {
+        updateData.image = req.file.path;
+      } await Product.findByIdAndUpdate(req.params.id, updateData);
       res.redirect('/dashboard');
     } catch (error) {
       res.status(500).send("Error updating product");
