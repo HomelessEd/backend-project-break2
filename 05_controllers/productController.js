@@ -6,10 +6,12 @@ const getNavBar= require('../03_helpers/getNavBar');
 const productController = 
 { showProducts: async (req,res) => {
     try{
-        const products = await Product.find();
-        const nav =getNavBar();
+        const {category} =req.query;
+        const products = await Product.find(category ? {category} : {});
         const isAdmin = req.originalUrl.includes('dashboard');
+        const nav =getNavBar(isAdmin);
         const cards = getProductCards(products, isAdmin);
+        const title = category ? `Super Shop - ${category}` : 'Super Shop - All Products';
         const html = baseHtml('Super Shop- Buy this stuff', nav, cards);
         res.send(html);
     } catch (error) {
